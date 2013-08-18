@@ -1,0 +1,5 @@
+# CONFIGS
+DATABASE = ''
+DEBUG = False
+USERNAME = ''
+PASSWORD = ''

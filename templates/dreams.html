@@ -1,0 +1,21 @@
+    {% extends "layout.html" %}
+    {% block body %}
+    {% for dream in dreams %}
+    <div class="dream">
+        <div class="dream-band">
+            <span class="time">Rêve fait le {{ dream.date }}</span>
+            <span class="title">{{dream.title}}</span>
+        </div>
+        <div class="dream-content">
+            {{dream.text}}
+        </div>
+        <div class="dream-tags">
+            <ul>
+                {% for tag in dream.tags %}
+                <li>{tag.name}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {%endfor}
+    {% endblock %}
