@@ -1,5 +1,5 @@
 drop table if exists dreams;
-create table entries (
+create table dreams (
       dr_id integer primary key autoincrement,
       dr_title varchar(100) not null,
       dr_text text not null,
