@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+    <div class="main">
+        <div class="dream">
+            <div class="dream-band">
+                <span class="title">Add a dream</span>
+        </div>
+        <form action= "{{ url_for('add_dream' )}}" method="POST">
+            <div class="formline">
+            <label for="title">Dream title :</label>
+            <input type="text" name="title"/>
+        </div>
+        <div class="formline">
+            <label for="date">Dream date :</label>
+            <input type="date" name="date" value ="{{ today }}">
+        </div>
+        <div class="formline">
+            <label for="content">Dream content :</label>
+        </div>
+        <div class="formline">
+           <textarea name="content"></textarea>
+       </div>
+    <input type="submit"/>
+    </div>
+    </div>
+</form>
+{% endblock %}
