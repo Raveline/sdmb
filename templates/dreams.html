@@ -7,7 +7,7 @@
             <span class="title">{{dream.title}}</span>
         </div>
         <div class="dream-content">
-            {{dream.text}}
+            {{dream.text|nl2br}}
         </div>
         <div class="dream-tags">
             <ul>
@@ -17,5 +17,20 @@
             </ul>
         </div>
     </div>
-    {%endfor}
+    <div>
+        {% endfor %}
+    {% if previous_page >= 0 or next_page != 0 %}
+    <div class="banner-end">
+        {% if previous_page >= 0 %}
+        <a class="left" href="{{ url_for('show_dreams', from_nb = previous_page) }}">
+            BEFORE
+        </a>
+        {% endif %}
+        {% if next_page != 0 %}
+        <a class="right" href="{{ url_for('show_dreams', from_nb = next_page) }}">
+            AFTER
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
     {% endblock %}
