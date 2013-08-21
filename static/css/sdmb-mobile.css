@@ -1,0 +1,145 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(bottom, rgb(85,121,212) 67%, rgb(150,182,230) 95%);
+    background-image: -o-linear-gradient(bottom, rgb(85,121,212) 67%, rgb(150,182,230) 95%);
+    background-image: -moz-linear-gradient(bottom, rgb(85,121,212) 67%, rgb(150,182,230) 95%);
+    background-image: -webkit-linear-gradient(bottom, rgb(85,121,212) 67%, rgb(150,182,230) 95%);
+    background-image: -ms-linear-gradient(bottom, rgb(85,121,212) 67%, rgb(150,182,230) 95%);
+
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.67, rgb(85,121,212)),
+    color-stop(0.95, rgb(150,182,230))
+    );
+    padding:0px;
+    margin:0px;
+}
+
+.banner {
+    width:90%;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    background-color:#E6E6DC;
+    color:black;
+    font-size:1.6em;
+    font-family:'Trebuchet MS';
+    padding:0.2em;
+    margin-top:0.4em;
+    -webkit-transition:opacity 0.2s ease;
+    -moz-transition:opacity 0.2s ease;
+    -o-transition:opacity 0.2s ease;
+}
+
+.main {
+    max-width:600px;
+    margin: auto;
+    border:solid 2px 0px 2px 0px;
+}
+
+.dream {
+    margin:15px 0px 15px 0px;
+    background-color:#E6E6DC;
+    border-top-left-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    padding:.2em;
+    font-family:arial, sans-serif;
+}
+
+.banner-end {
+    min-height:2em;
+    background-color:#8F00FF;
+    padding:.5em;
+    margin-bottom:1em;
+}
+
+.dream-band {
+    background-color:#8F00FF;
+    color:white;
+    width:100%;
+    margin-top:1em;
+    margin-bottom:1em;
+    padding:.2em;
+    float:left;
+}
+
+.time {
+    float:right;
+    font-style:italic;
+}
+
+.title {
+    float:left;
+    font-weight:bold;
+    font-size:1.2em;
+
+}
+
+.dream-content {
+    clear:both;
+    line-height:1.5em;
+    padding:1em;
+}
+
+form {
+    display:table;
+}
+
+.formline {
+    display:table-row;
+}
+
+.formline label {
+    display:table-cell;
+    width:50%;
+}
+
+.formline input {
+    display:table-cell;
+}
+
+.top-right {
+    position:fixed;
+    top:0px;
+    right:0px;
+    background-color:#FFF;
+    color:#000;
+    font-size:1.1em;
+    padding:1em;
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.end-banner a:link, 
+.end-banner a:focus, 
+.end-banner a:visited, 
+.end-banner a:hover,
+.title a:link, 
+.title a:focus, 
+.title a:visited, 
+.title a:hover {
+
+    color:white;
+}
+
+a, :focus, :visited, :hover {
+    color:black;
+    text-decoration:none;
+}
+
+.comment-count a {
+    font-style:italic;
+    padding:.3em;
+}
