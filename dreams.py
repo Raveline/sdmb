@@ -117,7 +117,8 @@ def act_modify_dream(dream_id):
 
 @app.context_processor
 def inject_globals():
-    return dict ( author = app.config['DREAMS_MADE_BY'] )
+    return dict ( author = app.config['DREAMS_MADE_BY'],
+            disqus = app.config['DISQUS_SHORTNAME'])
 
 @app.before_request
 def before_request():
