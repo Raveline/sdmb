@@ -144,3 +144,8 @@ a, :focus, :visited, :hover {
     color:black;
     text-decoration:none;
 }
+
+.comment-count a {
+    font-style:italic;
+    padding:.3em;
+}
