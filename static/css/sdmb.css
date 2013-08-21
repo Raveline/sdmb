@@ -22,8 +22,6 @@ body {
     margin:0px;
 }
 
-
-
 .banner {
     width:30%;
     border-top-right-radius: 10px 10px;
@@ -130,12 +128,19 @@ form {
     float:right;
 }
 
-a {
+.end-banner a:link, 
+.end-banner a:focus, 
+.end-banner a:visited, 
+.end-banner a:hover,
+.title a:link, 
+.title a:focus, 
+.title a:visited, 
+.title a:hover {
+
+    color:white;
+}
+
+a, :focus, :visited, :hover {
+    color:black;
     text-decoration:none;
-    color:white;
 }
-
-a:focus, :visited, :hover {
-    color:white;
-}
-
