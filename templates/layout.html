@@ -3,7 +3,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sdmb.css') }}"/>
     </head>
     <body>
-        <div class="banner">Sweet Dreams Made By {{ author }}</div>
+        <div class="banner"><a href="{{ url_for('main_page') }}">Sweet Dreams Made By {{ author }}</div></a>
         {% if session.logged_in %}
         <div class="top-right">
             <ul>
