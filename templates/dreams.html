@@ -4,7 +4,7 @@
     <div class="dream">
         <div class="dream-band">
             <span class="time">Rêve fait le {{ dream.date }}</span>
-            <span class="title">{{dream.title}}</span>
+            <span class="title"><a href="{{ url_for('show_dream', dream_id = dream.iddream) }}">{{dream.title}}</a></span>
         </div>
         <div class="dream-content">
             {{dream.text|nl2br}}
