@@ -6,20 +6,24 @@
             <div class="dream-band">
                 <span class="title">Add a dream</span>
         </div>
+        {% if dream.dreamid is not defined %}
         <form action= "{{ url_for('add_dream' )}}" method="POST">
+        {% else %}
+        <form action= "{{ url_for('act_modify_dream', dream_id = dream.dreamid) }}" method="POST">
+        {% endif %}
             <div class="formline">
             <label for="title">Dream title :</label>
-            <input type="text" name="title"/>
+            <input type="text" name="title" value="{{ dream.title }}"/>
         </div>
         <div class="formline">
             <label for="date">Dream date :</label>
-            <input type="date" name="date" value ="{{ today }}">
+            <input type="date" name="date" value ="{{ dream.date }}">
         </div>
         <div class="formline">
             <label for="content">Dream content :</label>
         </div>
         <div class="formline">
-           <textarea name="content"></textarea>
+            <textarea name="content">{{ dream.content }}</textarea>
        </div>
     <input type="submit"/>
     </div>
