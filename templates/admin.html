@@ -6,17 +6,21 @@
             <span class="title">Current dreams</span>
         </div>
         <form action= "{{ url_for('login' )}}" method="POST">
-            <a href="{{ url_for('add_dream') }}">New dream</a>
+            <a href="{{ url_for('new_dream') }}">New dream</a>
         
         <table>
             <tr>
+                <th>Date</th>
                 <th>Title</th>
                 <th>Actions</th>
             </tr>
             {% for dream in dreams %}
             <tr>
+                <td> {{ dream.date }} </td>
                 <td> {{ dream.title }} </td>
-                <td> Modify | Delete </td>
+                <td>
+                    <a href="{{ url_for('modify_dream', dream_id = dream.iddream) }}">Modify</a> | <a href="{{ url_for('remove_dream', dream_id = dream.iddream) }}"/> Delete </a>
+                </td>
             </tr>
             {% endfor %}
         </table>
