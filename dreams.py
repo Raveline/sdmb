@@ -6,7 +6,7 @@ import config
 from paginate import paginate
 import re
 from jinja2 import evalcontextfilter, Markup, escape
-
+import twitter
 
 # App generation
 app = Flask(__name__)
@@ -54,7 +54,7 @@ def login():
     # Check if user is connected
     login = request.form['login']
     password = request.form['password']
-    if login != app.config['USERNAME'] and password != app.config['PASSWORD']:
+    if login != app.config['USERNAME'] or password != app.config['PASSWORD']:
         return render_template('login.html', error="Wrong login or password.")
     else:
         session['logged_in'] = True
@@ -85,8 +85,10 @@ def new_dream():
 def add_dream():
     if not session.get('logged_in'):
         abort(401)
-    g.db.execute('insert into dreams (dr_title, dr_text, dr_date) values (?,?,?)', [request.form['title'], request.form['content'], request.form['date']])
+    result = g.db.execute('insert into dreams (dr_title, dr_text, dr_date) values (?,?,?)', [request.form['title'], request.form['content'], request.form['date']])
     g.db.commit()
+    last_id = result.lastrowid
+    tweet_this(app.config['TW_PREFIX_MESSAGE'] + ' ' + url_for('show_dream', dream_id = last_id, _external=True))
     return redirect(url_for('admin'))
 
 @app.route('/remove/<int:dream_id>')
@@ -112,6 +114,18 @@ def act_modify_dream(dream_id):
     update_dream(dream_id, request.form['title'],
             request.form['date'], request.form['content'])
     return redirect(url_for('admin'))
+
+### Twitter shit ###
+
+def tweet_this(message):
+    if app.config.get('TW_CONSUMER_SECRET') is not None:
+        my_auth = twitter.OAuth(app.config['TW_ACCESS_TOKEN'],
+                app.config['TW_ACCESS_TOKEN_SECRET'],
+                app.config['TW_CONSUMER_KEY'],
+                app.config['TW_CONSUMER_SECRET'])
+        twit = twitter.Twitter(auth=my_auth)
+        twit.statuses.update(status=message)
+
 
 ### INTERCEPTORS ###
 
